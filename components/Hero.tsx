@@ -15,9 +15,8 @@ export default function Hero() {
           loop
           playsInline
           className="w-full h-full object-cover scale-150"
-        >
-          <source src={getImagePath("videos/hero.mp4")} type="video/mp4" />
-          <source src={getImagePath("videos/hero.webm")} type="video/webm" />
+        > <source src="/videos/hero.mp4" type="video/mp4" />
+          <source src="/videos/hero.webm" type="video/webm" />
         </video>
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-black/20" />
       </div>

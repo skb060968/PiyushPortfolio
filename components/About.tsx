@@ -13,7 +13,7 @@ export default function AboutSection() {
           {/* Image */}
           <div className="relative overflow-hidden rounded-lg shadow-sm">
             <Image
-              src={getImagePath("images/about/piyush2.jpg")}
+               src="/images/about/piyush2.jpg"
               alt="Piyush Bholla"
               width={600}
               height={700}
