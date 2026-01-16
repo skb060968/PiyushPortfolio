@@ -1,7 +1,6 @@
 import Link from "next/link"
 import Image from "next/image"
 import { content } from "@/lib/data"
-import { getImagePath } from "@/lib/utils"
 
 export default function AboutSection() {
   const { about } = content

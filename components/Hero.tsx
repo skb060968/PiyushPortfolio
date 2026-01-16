@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { content } from "@/lib/data"
-import { getImagePath } from "@/lib/utils"
+
 
 export default function Hero() {
   const { hero } = content
