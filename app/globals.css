@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* -----------------------------
+   Base
+----------------------------- */
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: white;
+  color: #111827; /* neutral dark */
+}
+
+/* -----------------------------
+   Layout Utilities
+----------------------------- */
+
+.section-padding {
+  @apply py-16 sm:py-20 lg:py-24;
+}
+
+.container-max {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+/* -----------------------------
+   Animations (opt-in only)
+----------------------------- */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.6s ease-out forwards;
+}
