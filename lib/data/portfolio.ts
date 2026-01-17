@@ -27,7 +27,7 @@ export type CategoryData = {
 export const portfolioData: Record<string, CategoryData> = {
   "kidswear": {
     "title": "KIDSWEAR",
-    "description": "Playful comfort for growing imaginations.",
+    "description": "",
     "thumbnail": "/images/portfolio/kidswear/thumbnail.jpg",
     "projects": {
       "project1": {
@@ -84,7 +84,7 @@ export const portfolioData: Record<string, CategoryData> = {
   },
   "menswear": {
     "title": "MENSWEAR",
-    "description": "Tailored strength with effortless style.",
+    "description": "",
     "thumbnail": "/images/portfolio/menswear/thumbnail.jpg",
     "projects": {
       "project1": {
@@ -137,7 +137,7 @@ export const portfolioData: Record<string, CategoryData> = {
   },
   "womenswear": {
     "title": "WOMENSWEAR",
-    "description": "Elegance redefined for every occasion.",
+    "description": "",
     "thumbnail": "/images/portfolio/womenswear/thumbnail.jpg",
     "projects": {
       "project1": {
