@@ -26,8 +26,8 @@ export type CategoryData = {
 
 export const portfolioData: Record<string, CategoryData> = {
   "kidswear": {
-    "title": "Custom Title",
-    "description": "Short description",
+    "title": "KIDSWEAR",
+    "description": "Playful comfort for growing imaginations.",
     "thumbnail": "/images/portfolio/kidswear/thumbnail.jpg",
     "projects": {
       "project1": {
@@ -39,8 +39,8 @@ export const portfolioData: Record<string, CategoryData> = {
         ],
         "fields": {
           "consulting": {
-            "title": "Custom Title",
-            "description": "Short description",
+            "title": "Concept & Research",
+            "description": "Where ideas take root.",
             "images": [
               "/images/portfolio/kidswear/project1/consulting/image1.jpg",
               "/images/portfolio/kidswear/project1/consulting/image2.jpg",
@@ -49,8 +49,8 @@ export const portfolioData: Record<string, CategoryData> = {
             "thumbnail": "/images/portfolio/kidswear/project1/consulting/thumbnail.jpg"
           },
           "design": {
-            "title": "Custom Title",
-            "description": "Short description",
+            "title": "Design Development",
+            "description": "Sketching dreams into form.",
             "images": [
               "/images/portfolio/kidswear/project1/design/image1.jpg",
               "/images/portfolio/kidswear/project1/design/image2.jpg",
@@ -59,8 +59,8 @@ export const portfolioData: Record<string, CategoryData> = {
             "thumbnail": "/images/portfolio/kidswear/project1/design/thumbnail.jpg"
           },
           "production": {
-            "title": "Custom Title",
-            "description": "Short description",
+            "title": "Materials & Technicals",
+            "description": "From vision to fabric reality.",
             "images": [
               "/images/portfolio/kidswear/project1/production/image1.jpg",
               "/images/portfolio/kidswear/project1/production/image2.jpg",
@@ -69,8 +69,8 @@ export const portfolioData: Record<string, CategoryData> = {
             "thumbnail": "/images/portfolio/kidswear/project1/production/thumbnail.jpg"
           },
           "styling": {
-            "title": "Custom Title",
-            "description": "Short description",
+            "title": "Final Presentation",
+            "description": "The story unveiled in style.",
             "images": [
               "/images/portfolio/kidswear/project1/styling/image1.jpg",
               "/images/portfolio/kidswear/project1/styling/image2.jpg",
@@ -83,8 +83,8 @@ export const portfolioData: Record<string, CategoryData> = {
     }
   },
   "menswear": {
-    "title": "Custom Title",
-    "description": "Short description",
+    "title": "MENSWEAR",
+    "description": "Tailored strength with effortless style.",
     "thumbnail": "/images/portfolio/menswear/thumbnail.jpg",
     "projects": {
       "project1": {
@@ -136,8 +136,8 @@ export const portfolioData: Record<string, CategoryData> = {
     }
   },
   "womenswear": {
-    "title": "Custom Title",
-    "description": "Short description",
+    "title": "WOMENSWEAR",
+    "description": "Elegance redefined for every occasion.",
     "thumbnail": "/images/portfolio/womenswear/thumbnail.jpg",
     "projects": {
       "project1": {
