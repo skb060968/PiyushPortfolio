@@ -9,10 +9,11 @@ export default function AboutSection() {
     <section className="section-padding bg-fashion-gray">
       <div className="container-max">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          
           {/* Image */}
           <div className="relative overflow-hidden rounded-lg shadow-sm">
             <Image
-               src="/images/about/piyush2.jpg"
+              src="/images/about/piyush2.jpg"
               alt="Piyush Bholla"
               width={600}
               height={700}
@@ -36,12 +37,19 @@ export default function AboutSection() {
               <div className="w-16 h-1 bg-fashion-gold" />
             </div>
 
+            {/* Description */}
             <div className="space-y-4">
               <p className="text-gray-700 text-base sm:text-lg leading-relaxed">
                 {about.paragraph1}
               </p>
               <p className="text-gray-700 text-base sm:text-lg leading-relaxed">
                 {about.paragraph2}
+              </p>
+
+              {/* Education one-liner */}
+              <p className="text-sm sm:text-base text-gray-700 italic pt-2">
+                Trained at National Institute of Fashion Technology (NIFT), Bengaluru
+                &nbsp;and Fashion Institute of Technology (FIT), New York.
               </p>
             </div>
 

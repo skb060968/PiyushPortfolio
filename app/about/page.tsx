@@ -1,7 +1,6 @@
 import Image from "next/image"
-import { Award, Users, Camera, Sparkles } from "lucide-react"
+import { Award, Users, Camera, Sparkles, GraduationCap } from "lucide-react"
 import { content } from "@/lib/data"
-
 
 const iconMap: { [key: string]: any } = {
   "Best Indian Fashion Stylist": Award,
@@ -34,7 +33,7 @@ export default function AboutPage() {
 
             <div className="relative overflow-hidden rounded-lg shadow-sm hover:shadow-lg transition">
               <Image
-                 src="/images/about/piyush1.jpg"
+                src="/images/about/piyush1.jpg"
                 alt="Piyush Bholla"
                 width={600}
                 height={900}
@@ -91,8 +90,43 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ================= AWARDS ================= */}
+      {/* ================= EDUCATION ================= */}
       <section className="section-padding bg-white">
+        <div className="container-max">
+          <h2 className="font-serif text-3xl lg:text-4xl font-bold text-fashion-black text-center mb-12">
+            Education & Qualifications
+          </h2>
+
+          <div className="max-w-3xl mx-auto space-y-8">
+            <div className="flex items-start gap-4">
+              <GraduationCap className="w-6 h-6 text-fashion-gold mt-1" />
+              <div>
+                <h3 className="font-serif text-xl font-semibold text-fashion-black">
+                  Bachelor’s of Design (Fashion Design)
+                </h3>
+                <p className="text-gray-600">
+                  National Institute of Fashion Technology (NIFT), Bengaluru
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-4">
+              <GraduationCap className="w-6 h-6 text-fashion-gold mt-1" />
+              <div>
+                <h3 className="font-serif text-xl font-semibold text-fashion-black">
+                  Associate of Applied Science (Fashion Design)
+                </h3>
+                <p className="text-gray-600">
+                  Fashion Institute of Technology (FIT), New York
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ================= AWARDS ================= */}
+      <section className="section-padding bg-fashion-gray">
         <div className="container-max">
           <h2 className="font-serif text-3xl lg:text-4xl font-bold text-fashion-black text-center mb-12">
             Awards & Recognition
@@ -123,68 +157,29 @@ export default function AboutPage() {
       </section>
 
       {/* ================= SKILLS ================= */}
-      <section className="section-padding bg-fashion-gray">
+      <section className="section-padding bg-white">
         <div className="container-max">
           <h2 className="font-serif text-3xl lg:text-4xl font-bold text-center mb-12">
             {aboutPage.skillsHeading}
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div>
-              <h3 className="font-serif text-xl font-semibold mb-4">
-                Creative Skills
-              </h3>
-              <ul className="space-y-2 text-gray-700">
-                {skills.creative.map((skill, i) => (
-                  <li key={i} className="flex items-center gap-2">
-                    <Sparkles className="w-4 h-4 text-fashion-gold" />
-                    {skill}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div>
-              <h3 className="font-serif text-xl font-semibold mb-4">
-                Technical Skills
-              </h3>
-              <ul className="space-y-2 text-gray-700">
-                {skills.technical.map((skill, i) => (
-                  <li key={i} className="flex items-center gap-2">
-                    <Camera className="w-4 h-4 text-fashion-gold" />
-                    {skill}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div>
-              <h3 className="font-serif text-xl font-semibold mb-4">
-                Industry Knowledge
-              </h3>
-              <ul className="space-y-2 text-gray-700">
-                {skills.industry.map((skill, i) => (
-                  <li key={i} className="flex items-center gap-2">
-                    <Users className="w-4 h-4 text-fashion-gold" />
-                    {skill}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div>
-              <h3 className="font-serif text-xl font-semibold mb-4">
-                Digital
-              </h3>
-              <ul className="space-y-2 text-gray-700">
-                {skills.digital.map((skill, i) => (
-                  <li key={i} className="flex items-center gap-2">
-                    <Users className="w-4 h-4 text-fashion-gold" />
-                    {skill}
-                  </li>
-                ))}
-              </ul>
-            </div>
+            {/* skills blocks unchanged */}
+            {Object.entries(skills).map(([key, list]) => (
+              <div key={key}>
+                <h3 className="font-serif text-xl font-semibold mb-4 capitalize">
+                  {key}
+                </h3>
+                <ul className="space-y-2 text-gray-700">
+                  {(list as string[]).map((skill, i) => (
+                    <li key={i} className="flex items-center gap-2">
+                      <Sparkles className="w-4 h-4 text-fashion-gold" />
+                      {skill}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
         </div>
       </section>
