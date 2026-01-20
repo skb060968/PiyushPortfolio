@@ -60,7 +60,7 @@ export default function Hero() {
         aria-hidden
       >
         <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-white rounded-full mt-2" />
+          <div className="w-1 h-3 bg-gradient-to-b from-amber-50 to-amber-100 rounded-full mt-2" />
         </div>
       </div>
     </section>

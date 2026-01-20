@@ -9,7 +9,7 @@ export default function PortfolioPage() {
       {/* ============================= */}
       {/* PORTFOLIO HERO / INTRO */}
       {/* ============================= */}
-      <section className="bg-white pt-28 pb-16">
+      <section className="bg-amber-50 pt-28 pb-16">
         <div className="container-max">
           {/* Back Navigation */}
           <Link
@@ -36,7 +36,7 @@ export default function PortfolioPage() {
       {/* ============================= */}
       {/* PORTFOLIO CATEGORY GRID */}
       {/* ============================= */}
-      <section className="bg-fashion-gray py-20">
+      <section className="bg-amber-50 py-20">
         <div className="container-max">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 animate-fadeIn">
             {Object.entries(portfolioData).map(([categoryKey, category]) => (
@@ -48,7 +48,7 @@ export default function PortfolioPage() {
                   block
                   overflow-hidden
                   rounded-2xl
-                  bg-white
+                  bg-gradient-to-b from-amber-50 to-amber-100
                   shadow-sm
                   hover:shadow-xl
                   transition-all

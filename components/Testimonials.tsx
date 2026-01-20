@@ -8,7 +8,7 @@ export default function Testimonials() {
   const { testimonials } = content
 
   return (
-    <section className="section-padding bg-fashion-gray">
+    <section className="section-padding bg-gradient-to-b from-amber-50 to-amber-100">
       <div className="container-max">
         {/* Heading */}
         <div className="text-center mb-16">
@@ -25,7 +25,7 @@ export default function Testimonials() {
           {testimonials.items.map((testimonial, index) => (
             <div
               key={index}
-              className="bg-white p-8 rounded-lg shadow-sm"
+              className="bg-gradient-to-b from-amber-50 to-amber-100 p-8 rounded-lg shadow-sm"
             >
               <div className="flex mb-4">
                 {[...Array(testimonial.rating)].map((_, i) => (

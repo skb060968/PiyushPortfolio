@@ -16,7 +16,7 @@ export default function Navbar() {
   ]
 
   return (
-    <nav className="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-100">
+    <nav className="fixed top-0 w-full z-50 bg-amber-100 backdrop-blur-md border-b border-gray-100">
       <div className="container-max">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
@@ -53,7 +53,7 @@ export default function Navbar() {
 
         {/* Mobile Menu */}
         {isOpen && (
-          <div className="md:hidden border-t border-gray-100 bg-white">
+          <div className="md:hidden border-t border-gray-100 bg-gradient-to-b from-amber-50 to-amber-100">
             <div className="py-4 space-y-2">
               {navItems.map(item => (
                 <Link
