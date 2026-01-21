@@ -1,7 +1,9 @@
 import type { Metadata } from "next"
 import "./globals.css"
+
 import Navbar from "@/components/Navbar"
 import Footer from "@/components/Footer"
+import ClientGuards from "@/components/ClientGuards"
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://your-domain.com"),
@@ -26,6 +28,9 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className="flex flex-col min-h-screen">
+        {/* Client-side guards (disable right-click / long-press) */}
+        <ClientGuards />
+
         <Navbar />
         <main className="flex-grow">{children}</main>
         <Footer />

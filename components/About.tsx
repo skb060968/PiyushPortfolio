@@ -6,7 +6,7 @@ export default function AboutSection() {
   const { about } = content
 
   return (
-    <section className="section-padding bg-gradient-to-b from-amber-50 to-amber-100">
+    <section className="section-padding bg-stone-50">
       <div className="container-max">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           
@@ -29,7 +29,7 @@ export default function AboutSection() {
           </div>
 
           {/* Content */}
-          <div className="bg-gradient-to-b from-amber-50 to-amber-100 rounded-xl p-8 lg:p-10 space-y-6">
+          <div className="bg-stone-100 rounded-xl p-8 lg:p-10 space-y-6">
             <div>
               <h2 className="font-serif text-3xl sm:text-4xl font-bold text-fashion-black mb-4">
                 {about.heading}
