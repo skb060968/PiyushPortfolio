@@ -36,7 +36,7 @@ export default function CategoryPage({
             href="/portfolio"
             className="inline-block mb-6 text-sm text-gray-500 hover:text-fashion-black transition-colors"
           >
-            ← Back to Portfolio
+            ← BACK TO PORTFOLIO
           </Link>
 
           {/* Category Title */}

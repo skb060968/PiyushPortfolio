@@ -2,13 +2,6 @@
 import Link from "next/link"
 import { portfolioData } from "@/lib/data/portfolio"
 
-/**
- * Portfolio Field Detail Page
- * ---------------------------
- * - Immersive visual gallery for a specific creative field
- * - Editorial layout with featured image + gallery flow
- */
-
 export async function generateStaticParams() {
   const params: { category: string; subProject: string; field: string }[] = []
 
@@ -41,39 +34,48 @@ export default function FieldDetailPage({
   return (
     <>
       {/* ============================= */}
-      {/* FIELD NAVIGATION */}
+      {/* HEADER / NAV */}
       {/* ============================= */}
-      <section className="bg-stone-50 pt-24 pb-12">
+      <section className="bg-stone-50 pt-24 pb-14">
         <div className="container-max">
           <Link
             href={`/portfolio/${category}/${subProject}`}
-            className="inline-block mb-6 text-sm text-gray-500 hover:text-fashion-black transition-colors"
+            className="inline-block mb-6 text-sm text-gray-600 hover:text-fashion-black transition-colors"
           >
-            ← Back to {subProject}
+            ← BACK TO {subProject}
           </Link>
 
-          {/* Field Title */}
           <h1 className="font-serif text-5xl font-bold text-fashion-black mb-6">
             {fieldData.title}
           </h1>
 
-          {/* Field Description */}
-          <p className="max-w-3xl text-lg text-gray-600 leading-relaxed">
+          <p className="max-w-3xl text-lg text-gray-700 leading-relaxed">
             {fieldData.description}
           </p>
         </div>
       </section>
 
       {/* ============================= */}
-      {/* FEATURED IMAGE */}
+      {/* FEATURED / HERO IMAGE */}
       {/* ============================= */}
-      <section className="bg-stone-50 py-20">
+      <section className="bg-stone-50 py-24">
         <div className="container-max">
-          <div className="overflow-hidden rounded-2xl shadow-sm animate-fadeIn">
+          <div className="relative overflow-hidden rounded-3xl shadow-xl group animate-fadeInUp">
+            {/* subtle overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-60 z-10" />
+
             <img
-              src={fieldData.thumbnail}
-              alt={`${fieldData.title} featured`}
-              className="w-full max-h-[80vh] object-cover"
+               src={fieldData.hero ?? fieldData.thumbnail}
+               alt={`${fieldData.title} hero`}
+              className="
+                w-full
+                max-h-[80vh]
+                object-cover
+                transition-transform
+                duration-1000
+                ease-out
+                group-hover:scale-105
+              "
             />
           </div>
         </div>
@@ -82,7 +84,7 @@ export default function FieldDetailPage({
       {/* ============================= */}
       {/* IMAGE GALLERY */}
       {/* ============================= */}
-      <section className="bg-stone-50 py-24">
+      <section className="bg-stone-50 py-28">
         <div className="container-max">
           {fieldData.images.length === 0 ? (
             <p className="text-center text-gray-500">
@@ -93,12 +95,30 @@ export default function FieldDetailPage({
               {fieldData.images.map((src, i) => (
                 <div
                   key={i}
-                  className="mb-6 overflow-hidden rounded-xl shadow-sm hover:shadow-lg transition-all duration-500 animate-fadeIn"
+                  className="
+                    mb-6
+                    break-inside-avoid
+                    overflow-hidden
+                    rounded-2xl
+                    bg-white
+                    shadow-md
+                    transition-all
+                    duration-500
+                    hover:shadow-2xl
+                    animate-fadeInUp
+                  "
                 >
                   <img
                     src={src}
                     alt={`${fieldData.title} ${i + 1}`}
-                    className="w-full object-cover transition-transform duration-700 hover:scale-105"
+                    className="
+                      w-full
+                      object-cover
+                      transition-transform
+                      duration-700
+                      ease-out
+                      hover:scale-110
+                    "
                   />
                 </div>
               ))}

@@ -16,7 +16,7 @@ export default function PortfolioPage() {
             href="/"
             className="inline-block mb-6 text-sm text-gray-500 hover:text-fashion-black transition-colors"
           >
-            ← Back to Home
+            ← BACK TO HOME
           </Link>
 
           {/* Page Title */}

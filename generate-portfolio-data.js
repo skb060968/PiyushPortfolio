@@ -1,145 +1,119 @@
+/**
+ * Auto-generate portfolio data from public/images/portfolio
+ * Correct hero / thumbnail separation
+ */
+
 const fs = require("fs")
 const path = require("path")
 
-// Root folder where your images live
-const portfolioRoot = path.join(__dirname, "public/images/portfolio")
+const ROOT = path.join(process.cwd(), "public", "images", "portfolio")
+const OUTPUT = path.join(process.cwd(), "lib", "data", "portfolio.ts")
 
-// Output file
-const outputPath = path.join(__dirname, "lib/data/portfolio.ts")
+const isImage = (file) => /\.(jpg|jpeg|png|webp)$/i.test(file)
 
-// ---------------------------------------------
-// Helpers
-// ---------------------------------------------
+const normalize = (name) => name.toLowerCase()
 
-function getFiles(folder) {
-  return fs.existsSync(folder) ? fs.readdirSync(folder) : []
-}
-
-function isDirectory(p) {
-  return fs.existsSync(p) && fs.statSync(p).isDirectory()
-}
-
-// Normalize paths for browser use
-function normalizePath(p) {
-  return p.replace(/\\/g, "/")
-}
-
-// Read meta.json safely
-function readMeta(folderPath) {
-  const metaPath = path.join(folderPath, "meta.json")
-  if (!fs.existsSync(metaPath)) return {}
+const readJSON = (filePath) => {
+  if (!fs.existsSync(filePath)) return {}
   try {
-    return JSON.parse(fs.readFileSync(metaPath, "utf-8"))
-  } catch (err) {
-    console.error(`❌ Invalid meta.json at: ${metaPath}`)
-    throw err
+    return JSON.parse(fs.readFileSync(filePath, "utf-8"))
+  } catch {
+    return {}
   }
 }
 
-// Always return string[]
-function normalizeDescriptionArray(value) {
-  if (!value) return []
-  if (Array.isArray(value)) return value.filter(Boolean)
-  return [String(value)]
-}
+const publicPath = (abs) =>
+  abs.replace(path.join(process.cwd(), "public"), "").replace(/\\/g, "/")
 
-// Always return string
-function normalizeDescriptionString(value) {
-  return typeof value === "string" ? value : ""
-}
+const portfolio = {}
 
-// ---------------------------------------------
-// Generator
-// ---------------------------------------------
+for (const category of fs.readdirSync(ROOT)) {
+  const categoryPath = path.join(ROOT, category)
+  if (!fs.statSync(categoryPath).isDirectory()) continue
 
-function generatePortfolioData() {
-  const portfolioData = {}
-  const categories = getFiles(portfolioRoot)
+  const categoryMeta = readJSON(path.join(categoryPath, "meta.json"))
 
-  for (const category of categories) {
-    const categoryPath = path.join(portfolioRoot, category)
-    if (!isDirectory(categoryPath)) continue
+  portfolio[category] = {
+    title: categoryMeta.title || category,
+    description: categoryMeta.description || "",
+    thumbnail: publicPath(path.join(categoryPath, "thumbnail.jpg")),
+    projects: {},
+  }
 
-    const categoryMeta = readMeta(categoryPath)
+  for (const project of fs.readdirSync(categoryPath)) {
+    const projectPath = path.join(categoryPath, project)
+    if (!fs.statSync(projectPath).isDirectory()) continue
+    if (project === "meta.json") continue
 
-    portfolioData[category] = {
-      title: categoryMeta.title || category,
-      description: normalizeDescriptionString(categoryMeta.description),
-      thumbnail: normalizePath(
-        `/images/portfolio/${category}/thumbnail.jpg`
-      ),
-      projects: {}
+    const projectMeta = readJSON(path.join(projectPath, "meta.json"))
+
+    portfolio[category].projects[project] = {
+      title: projectMeta.title || project,
+      description: projectMeta.description || "",
+      thumbnail: publicPath(path.join(projectPath, "thumbnail.jpg")),
+      fields: {},
     }
 
-    const projects = getFiles(categoryPath)
+    for (const field of fs.readdirSync(projectPath)) {
+      const fieldPath = path.join(projectPath, field)
+      if (!fs.statSync(fieldPath).isDirectory()) continue
+      if (field === "meta.json") continue
 
-    for (const project of projects) {
-      const projectPath = path.join(categoryPath, project)
-      if (!isDirectory(projectPath)) continue
+      const fieldMeta = readJSON(path.join(fieldPath, "meta.json"))
 
-      const projectMeta = readMeta(projectPath)
+      let hero = ""
+      let thumbnail = ""
+      const images = []
 
-      portfolioData[category].projects[project] = {
-        title: projectMeta.title || project,
-        thumbnail: normalizePath(
-          `/images/portfolio/${category}/${project}/thumbnail.jpg`
-        ),
-        images: Array.isArray(projectMeta.images)
-          ? projectMeta.images
-          : [],
-        description: normalizeDescriptionArray(projectMeta.description),
-        fields: {}
-      }
+      for (const file of fs.readdirSync(fieldPath)) {
+        if (!isImage(file)) continue
 
-      const fields = getFiles(projectPath)
+        const fileLower = normalize(file)
+        const rel = publicPath(path.join(fieldPath, file))
 
-      for (const field of fields) {
-        const fieldPath = path.join(projectPath, field)
-        if (!isDirectory(fieldPath)) continue
-
-        const fieldMeta = readMeta(fieldPath)
-        const fieldFiles = getFiles(fieldPath)
-
-        const fieldImages = fieldFiles
-          .filter(f => f !== "thumbnail.jpg" && f !== "meta.json")
-          .map(f =>
-            normalizePath(
-              `/images/portfolio/${category}/${project}/${field}/${f}`
-            )
-          )
-
-        portfolioData[category].projects[project].fields[field] = {
-          title: fieldMeta.title || field,
-          description: normalizeDescriptionString(fieldMeta.description),
-          images: fieldImages,
-          thumbnail: normalizePath(
-            `/images/portfolio/${category}/${project}/${field}/thumbnail.jpg`
-          )
+        if (fileLower === "hero.jpg") {
+          hero = rel
+        } else if (fileLower === "thumbnail.jpg") {
+          thumbnail = rel
+        } else {
+          images.push(rel)
         }
       }
+
+      if (!hero) {
+        console.warn(`⚠️ Missing hero.jpg in ${fieldPath}`)
+        hero = thumbnail
+      }
+
+      portfolio[category].projects[project].fields[field] = {
+        title: fieldMeta.title || field,
+        description: fieldMeta.description || "",
+        thumbnail,
+        hero,
+        images,
+      }
     }
   }
+}
 
-  // ---------------------------------------------
-  // Write TypeScript output
-  // ---------------------------------------------
+/* ---------- WRITE FILE ---------- */
 
-  const tsContent = `
-// AUTO-GENERATED FILE — DO NOT EDIT MANUALLY
+const output = `
+// ⚠️ AUTO-GENERATED FILE — DO NOT EDIT
 // Generated by generate-portfolio-data.js
 
 export type FieldData = {
   title: string
   description: string
-  images: string[]
   thumbnail: string
+  hero: string
+  images: string[]
 }
 
 export type SubProject = {
   title: string
+  description: string
   thumbnail: string
-  images: string[]
-  description: string[]
   fields: Record<string, FieldData>
 }
 
@@ -151,14 +125,12 @@ export type CategoryData = {
 }
 
 export const portfolioData: Record<string, CategoryData> = ${JSON.stringify(
-    portfolioData,
-    null,
-    2
-  )}
+  portfolio,
+  null,
+  2
+)}
 `
 
-  fs.writeFileSync(outputPath, tsContent, "utf-8")
-  console.log("✅ portfolio.ts regenerated successfully (clean setup)")
-}
+fs.writeFileSync(OUTPUT, output.trim() + "\n", "utf-8")
 
-generatePortfolioData()
+console.log("✅ portfolio.ts generated successfully")

@@ -44,7 +44,7 @@ export default function ProjectPage({
             href={`/portfolio/${category}`}
             className="inline-block mb-6 text-sm text-gray-500 hover:text-fashion-black transition-colors"
           >
-            ← Back to {portfolioData[category].title}
+            ← BACK TO {portfolioData[category].title}
           </Link>
 
           {/* Project Title */}
@@ -53,14 +53,17 @@ export default function ProjectPage({
           </h1>
 
           {/* Project Description */}
-          {projectData.description.map((desc, i) => (
-            <p
-              key={i}
-              className="mt-6 max-w-3xl text-lg text-gray-600 leading-relaxed"
-            >
-              {desc}
-            </p>
-          ))}
+		  
+		  
+          {projectData.description && (
+           <p className="mt-6 max-w-3xl text-lg text-gray-700 leading-relaxed">
+           {projectData.description}
+           </p>
+		   
+           )}
+
+		  
+		  		  
         </div>
       </section>
 
