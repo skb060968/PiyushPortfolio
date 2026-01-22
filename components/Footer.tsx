@@ -6,7 +6,7 @@ export default function Footer() {
   const { footer, siteInfo, contact } = content
 
   return (
-    <footer className="bg-stone-100 border-t border-gray-200">
+    <footer className="bg-amber-100 border-t border-gray-200">
       <div className="container-max py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
           {/* Brand */}

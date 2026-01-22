@@ -8,7 +8,7 @@ const TARGET_EXTENSIONS = [".ts", ".tsx", ".js", ".jsx"];
 const IGNORE_DIRS = ["node_modules", ".next", "dist", "build", ".git"];
 
 const REPLACEMENTS = [
-  { from: "bg-stone", to: "bg-stone" },
+  { from: "bg-amber", to: "bg-amber" },
   
 ];
 

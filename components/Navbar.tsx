@@ -16,7 +16,7 @@ export default function Navbar() {
   ]
 
   return (
-    <nav className="fixed top-0 w-full z-50 bg-stone-100 backdrop-blur-md border-b border-gray-100">
+    <nav className="fixed top-0 w-full z-50 bg-amber-100 backdrop-blur-md border-b border-gray-100">
       <div className="container-max">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}

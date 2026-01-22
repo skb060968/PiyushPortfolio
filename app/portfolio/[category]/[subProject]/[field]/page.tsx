@@ -36,7 +36,7 @@ export default function FieldDetailPage({
       {/* ============================= */}
       {/* HEADER / NAV */}
       {/* ============================= */}
-      <section className="bg-stone-50 pt-24 pb-14">
+      <section className="bg-amber-50 pt-24 pb-14">
         <div className="container-max">
           <Link
             href={`/portfolio/${category}/${subProject}`}
@@ -58,7 +58,7 @@ export default function FieldDetailPage({
       {/* ============================= */}
       {/* FEATURED / HERO IMAGE */}
       {/* ============================= */}
-      <section className="bg-stone-50 py-24">
+      <section className="bg-amber-50 py-24">
         <div className="container-max">
           <div className="relative overflow-hidden rounded-3xl shadow-xl group animate-fadeInUp">
             {/* subtle overlay */}
@@ -84,7 +84,7 @@ export default function FieldDetailPage({
       {/* ============================= */}
       {/* IMAGE GALLERY */}
       {/* ============================= */}
-      <section className="bg-stone-50 py-28">
+      <section className="bg-amber-50 py-28">
         <div className="container-max">
           {fieldData.images.length === 0 ? (
             <p className="text-center text-gray-500">

@@ -23,7 +23,7 @@ export default function ServicesPage() {
   const { services, servicesPage } = content
 
   return (
-    <div className="bg-stone-50">
+    <div className="bg-amber-50">
       {/* ================= HERO ================= */}
       <section className="section-padding">
         <div className="container-max text-center max-w-3xl">
@@ -44,7 +44,7 @@ export default function ServicesPage() {
             return (
               <div
                 key={index}
-                className="bg-stone-100 p-10 rounded-2xl space-y-6 hover:bg-stone-200 hover:shadow-xl transition"
+                className="bg-amber-100 p-10 rounded-2xl space-y-6 hover:bg-amber-200 hover:shadow-xl transition"
               >
                 <div className="flex items-center">
                   <div className="w-12 h-12 bg-fashion-gold rounded-full flex items-center justify-center mr-4">
@@ -91,12 +91,12 @@ export default function ServicesPage() {
               <div
                  key={i}
   className="
-    bg-stone-100
+    bg-amber-100
     rounded-xl
     p-6
     shadow-sm
     hover:shadow-xl
-    hover:bg-stone-200
+    hover:bg-amber-200
     transition
     text-center
   "

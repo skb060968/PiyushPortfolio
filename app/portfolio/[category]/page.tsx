@@ -29,7 +29,7 @@ export default function CategoryPage({
       {/* ============================= */}
       {/* CATEGORY HERO / INTRO */}
       {/* ============================= */}
-      <section className="bg-stone-50 pt-28 pb-16">
+      <section className="bg-amber-50 pt-28 pb-16">
         <div className="container-max">
           {/* Back Navigation */}
           <Link
@@ -55,7 +55,7 @@ export default function CategoryPage({
       {/* ============================= */}
       {/* PROJECT GRID */}
       {/* ============================= */}
-      <section className="bg-stone-50 py-20">
+      <section className="bg-amber-50 py-20">
         <div className="container-max">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 animate-fadeIn">
             {Object.entries(category.projects).map(([slug, project]) => (
@@ -67,7 +67,7 @@ export default function CategoryPage({
                   block
                   overflow-hidden
                   rounded-2xl
-                  bg-stone-100
+                  bg-amber-100
                   shadow-sm
                   hover:shadow-xl
                   transition-all

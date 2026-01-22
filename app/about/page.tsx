@@ -22,7 +22,7 @@ export default function AboutPage() {
     <div>
 
       {/* ================= HERO + PHILOSOPHY ================= */}
-      <section className="section-padding bg-stone-50">
+      <section className="section-padding bg-amber-50">
         <div className="container-max space-y-20">
 
           {/* HERO */}
@@ -69,7 +69,7 @@ export default function AboutPage() {
       </section>
 
       {/* ================= JOURNEY + EDUCATION ================= */}
-      <section className="section-padding bg-stone-50">
+      <section className="section-padding bg-amber-50">
         <div className="container-max space-y-20">
 
           {/* JOURNEY */}
@@ -135,7 +135,7 @@ export default function AboutPage() {
       </section>
 
       {/* ================= AWARDS + SKILLS ================= */}
-      <section className="section-padding bg-stone-50">
+      <section className="section-padding bg-amber-50">
         <div className="container-max space-y-20">
 
           {/* AWARDS */}

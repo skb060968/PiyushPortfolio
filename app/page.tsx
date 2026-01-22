@@ -9,7 +9,7 @@ export default function Home() {
       <Hero />
 
       {/* Core content block */}
-      <section className="bg-stone-50">
+      <section className="bg-amber-50">
         <PortfolioCategories />
         <About />
       </section>

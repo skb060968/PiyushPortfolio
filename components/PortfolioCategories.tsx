@@ -3,7 +3,7 @@ import { portfolioData } from "@/lib/data/portfolio"
 
 export default function PortfolioCategories() {
   return (
-    <section className="py-20 bg-stone-50">
+    <section className="py-20 bg-amber-50">
       <div className="max-w-7xl mx-auto px-6">
         <h2 className="text-3xl font-light mb-10">Portfolio</h2>
 
@@ -12,7 +12,7 @@ export default function PortfolioCategories() {
             <Link
               key={slug}
               href={`/portfolio/${slug}`}
-              className="group block rounded-lg overflow-hidden bg-stone-100 border border-amber-200 hover:shadow-lg transition"
+              className="group block rounded-lg overflow-hidden bg-amber-100 border border-amber-200 hover:shadow-lg transition"
             >
               <div className="overflow-hidden">
                 <img

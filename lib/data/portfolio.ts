@@ -52,14 +52,49 @@ export const portfolioData: Record<string, CategoryData> = {
             "title": "Materials & Technicals",
             "description": "From vision to fabric reality.",
             "thumbnail": "/images/portfolio/kidswear/project1/production/thumbnail.jpg",
-            "hero": "/images/portfolio/kidswear/project1/production/hero.jpg",
+            "hero": "/images/portfolio/kidswear/project1/production/thumbnail.jpg",
             "images": []
           },
           "styling": {
             "title": "Final Presentation",
             "description": "The story unveiled in style.",
             "thumbnail": "/images/portfolio/kidswear/project1/styling/thumbnail.jpg",
-            "hero": "/images/portfolio/kidswear/project1/styling/hero.jpg",
+            "hero": "/images/portfolio/kidswear/project1/styling/thumbnail.jpg",
+            "images": []
+          }
+        }
+      },
+      "project2": {
+        "title": "Custom Title",
+        "description": "Short description",
+        "thumbnail": "/images/portfolio/kidswear/project2/thumbnail.jpg",
+        "fields": {
+          "consulting": {
+            "title": "Concept & Research",
+            "description": "Where ideas take root.",
+            "thumbnail": "/images/portfolio/kidswear/project2/consulting/thumbnail.jpg",
+            "hero": "/images/portfolio/kidswear/project2/consulting/thumbnail.jpg",
+            "images": []
+          },
+          "design": {
+            "title": "Design Development",
+            "description": "Sketching dreams into form.",
+            "thumbnail": "/images/portfolio/kidswear/project2/design/thumbnail.jpg",
+            "hero": "/images/portfolio/kidswear/project2/design/thumbnail.jpg",
+            "images": []
+          },
+          "production": {
+            "title": "Materials & Technicals",
+            "description": "From vision to fabric reality.",
+            "thumbnail": "/images/portfolio/kidswear/project2/production/thumbnail.jpg",
+            "hero": "/images/portfolio/kidswear/project2/production/thumbnail.jpg",
+            "images": []
+          },
+          "styling": {
+            "title": "Final Presentation",
+            "description": "The story unveiled in style.",
+            "thumbnail": "/images/portfolio/kidswear/project2/styling/thumbnail.jpg",
+            "hero": "/images/portfolio/kidswear/project2/styling/thumbnail.jpg",
             "images": []
           }
         }
@@ -105,6 +140,41 @@ export const portfolioData: Record<string, CategoryData> = {
             "images": []
           }
         }
+      },
+      "project2": {
+        "title": "Custom Title",
+        "description": "Short description",
+        "thumbnail": "/images/portfolio/menswear/project2/thumbnail.jpg",
+        "fields": {
+          "consulting": {
+            "title": "Concept & Research",
+            "description": "Where ideas take root.",
+            "thumbnail": "/images/portfolio/menswear/project2/consulting/thumbnail.jpg",
+            "hero": "/images/portfolio/menswear/project2/consulting/thumbnail.jpg",
+            "images": []
+          },
+          "design": {
+            "title": "Design Development",
+            "description": "Sketching dreams into form.",
+            "thumbnail": "/images/portfolio/menswear/project2/design/thumbnail.jpg",
+            "hero": "/images/portfolio/menswear/project2/design/thumbnail.jpg",
+            "images": []
+          },
+          "production": {
+            "title": "Materials & Technicals",
+            "description": "From vision to fabric reality.",
+            "thumbnail": "/images/portfolio/menswear/project2/production/thumbnail.jpg",
+            "hero": "/images/portfolio/menswear/project2/production/thumbnail.jpg",
+            "images": []
+          },
+          "styling": {
+            "title": "Final Presentation",
+            "description": "The story unveiled in style.",
+            "thumbnail": "/images/portfolio/menswear/project2/styling/thumbnail.jpg",
+            "hero": "/images/portfolio/menswear/project2/styling/thumbnail.jpg",
+            "images": []
+          }
+        }
       }
     }
   },
@@ -144,6 +214,41 @@ export const portfolioData: Record<string, CategoryData> = {
             "description": "The story unveiled in style.",
             "thumbnail": "/images/portfolio/womenswear/project1/styling/thumbnail.jpg",
             "hero": "/images/portfolio/womenswear/project1/styling/thumbnail.jpg",
+            "images": []
+          }
+        }
+      },
+      "project2": {
+        "title": "Custom Title",
+        "description": "Short description",
+        "thumbnail": "/images/portfolio/womenswear/project2/thumbnail.jpg",
+        "fields": {
+          "consulting": {
+            "title": "Concept & Research",
+            "description": "Where ideas take root.",
+            "thumbnail": "/images/portfolio/womenswear/project2/consulting/thumbnail.jpg",
+            "hero": "/images/portfolio/womenswear/project2/consulting/thumbnail.jpg",
+            "images": []
+          },
+          "design": {
+            "title": "Design Development",
+            "description": "Sketching dreams into form.",
+            "thumbnail": "/images/portfolio/womenswear/project2/design/thumbnail.jpg",
+            "hero": "/images/portfolio/womenswear/project2/design/thumbnail.jpg",
+            "images": []
+          },
+          "production": {
+            "title": "Materials & Technicals",
+            "description": "From vision to fabric reality.",
+            "thumbnail": "/images/portfolio/womenswear/project2/production/thumbnail.jpg",
+            "hero": "/images/portfolio/womenswear/project2/production/thumbnail.jpg",
+            "images": []
+          },
+          "styling": {
+            "title": "Final Presentation",
+            "description": "The story unveiled in style.",
+            "thumbnail": "/images/portfolio/womenswear/project2/styling/thumbnail.jpg",
+            "hero": "/images/portfolio/womenswear/project2/styling/thumbnail.jpg",
             "images": []
           }
         }
