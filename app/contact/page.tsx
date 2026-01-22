@@ -27,7 +27,7 @@ export default function ContactPage() {
   }, [])
 
   return (
-    <section className="section-padding bg-amber-50">
+    <section className="section-padding bg-stone-50">
       <div className="container-max space-y-20">
 
         {/* ================= HEADER ================= */}
@@ -117,11 +117,11 @@ export default function ContactPage() {
                 ref={el => {
                   if (el) faqRefs.current[index] = el
                 }}
-                className="bg-amber-100 p-8 rounded-xl space-y-4
+                className="bg-stone-100 p-8 rounded-xl space-y-4
                   opacity-0 translate-y-6
                   transition-shadow duration-300
                   hover:shadow-lg
-				  hover:bg-amber-200"
+				  hover:bg-stone-200"
               >
                 <h3 className="font-semibold text-fashion-black">
                   {item.question}

@@ -38,7 +38,7 @@ export default function ProjectPage({
       {/* ============================= */}
       {/* PROJECT NAVIGATION */}
       {/* ============================= */}
-      <section className="bg-amber-50 pt-24 pb-10">
+      <section className="bg-stone-50 pt-24 pb-10">
         <div className="container-max">
           <Link
             href={`/portfolio/${category}`}
@@ -70,7 +70,7 @@ export default function ProjectPage({
       {/* ============================= */}
       {/* PROJECT FIELDS GRID */}
       {/* ============================= */}
-      <section className="bg-amber-50 py-20">
+      <section className="bg-stone-50 py-20">
         <div className="container-max">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 animate-fadeIn">
             {Object.entries(projectData.fields).map(([fieldKey, field]) => (
@@ -82,7 +82,7 @@ export default function ProjectPage({
                   block
                   overflow-hidden
                   rounded-2xl
-                  bg-amber-100
+                  bg-stone-100
                   shadow-sm
                   hover:shadow-xl
                   transition-all
