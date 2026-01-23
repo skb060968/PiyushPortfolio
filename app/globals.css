@@ -97,26 +97,15 @@ video {
 }
 
 /* -----------------------------
-   Scroll Reveal – Card Elevation
+   Scroll Card Elevation
 ----------------------------- */
-@keyframes riseIn {
-  from {
-    opacity: 0;
-    transform: translateY(24px) scale(0.98);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
+
+
+.card {
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
-.reveal {
-  opacity: 0;
-  transform: translateY(24px) scale(0.98);
-}
-
-.reveal-visible {
-  animation: riseIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  /* Add a subtle base shadow after reveal */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+.card.elevated {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 }
