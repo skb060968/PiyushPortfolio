@@ -1,6 +1,7 @@
 export const services = [
   {
     title: "Creative Design",
+    slug: "creative-design",
     description:
       "Transforming ideas into captivating visuals, blending artistry with fashion storytelling.",
     features: [
@@ -12,6 +13,7 @@ export const services = [
   },
   {
     title: "Technical Design",
+    slug: "technical-design",
     description:
       "Precision-driven expertise ensuring every garment is production-ready.",
     features: [
@@ -23,6 +25,7 @@ export const services = [
   },
   {
     title: "Production & Sourcing",
+    slug: "production-sourcing",
     description:
       "Streamlined sourcing and production solutions with quality control.",
     features: [
@@ -34,6 +37,7 @@ export const services = [
   },
   {
     title: "Styling & Personal Services",
+    slug: "styling-personal-services",
     description:
       "Personalized styling experiences that celebrate individuality.",
     features: [
@@ -45,6 +49,7 @@ export const services = [
   },
   {
     title: "Consulting & Brand Development",
+    slug: "consulting-brand-development",
     description:
       "Strategic guidance to shape and elevate fashion brands.",
     features: [
@@ -56,6 +61,7 @@ export const services = [
   },
   {
     title: "Specialized Services",
+    slug: "specialized-services",
     description:
       "Unique offerings including sustainability and artisan collaborations.",
     features: [

@@ -9,6 +9,7 @@ import {
   ArrowRight,
 } from "lucide-react"
 import { content } from "@/lib/data"
+import RevealWrapper from "@/components/RevealWrapper"
 
 const iconMap: { [key: string]: any } = {
   "Creative Design": Sparkles,
@@ -42,41 +43,43 @@ export default function ServicesPage() {
           {services.map((service, index) => {
             const Icon = iconMap[service.title] || Sparkles
             return (
-              <div
-                key={index}
-                className="bg-stone-100 p-10 rounded-2xl space-y-6 hover:bg-stone-200 hover:shadow-xl transition"
-              >
-                <div className="flex items-center">
-                  <div className="w-12 h-12 bg-fashion-gold rounded-full flex items-center justify-center mr-4">
-                    <Icon className="w-6 h-6 text-white" />
+              <RevealWrapper key={service.slug} index={index}>
+                <div
+                  id={service.slug} // <-- anchor target for footer links
+                  className="bg-stone-100 p-10 rounded-2xl space-y-6 hover:bg-stone-200 hover:shadow-xl transition"
+                >
+                  <div className="flex items-center">
+                    <div className="w-12 h-12 bg-fashion-gold rounded-full flex items-center justify-center mr-4">
+                      <Icon className="w-6 h-6 text-white" />
+                    </div>
+                    <h3 className="font-serif text-2xl font-semibold text-gray-900">
+                      {service.title}
+                    </h3>
                   </div>
-                  <h3 className="font-serif text-2xl font-semibold text-gray-900">
-                    {service.title}
-                  </h3>
+
+                  <p className="text-gray-800 leading-relaxed">
+                    {service.description}
+                  </p>
+
+                  <ul className="space-y-2">
+                    {service.features.map((feature, i) => (
+                      <li
+                        key={i}
+                        className="flex items-center text-gray-700"
+                      >
+                        <Sparkles className="w-4 h-4 text-fashion-gold mr-2" />
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-
-                <p className="text-gray-800 leading-relaxed">
-                  {service.description}
-                </p>
-
-                <ul className="space-y-2">
-                  {service.features.map((feature, i) => (
-                    <li
-                      key={i}
-                      className="flex items-center text-gray-700"
-                    >
-                      <Sparkles className="w-4 h-4 text-fashion-gold mr-2" />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              </RevealWrapper>
             )
           })}
         </div>
       </section>
 
-      {/* ================= PROCESS (REVAMPED) ================= */}
+      {/* ================= PROCESS ================= */}
       <section className="pb-28">
         <div className="container-max text-center">
           <h2 className="font-serif text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
@@ -86,36 +89,29 @@ export default function ServicesPage() {
             {servicesPage.processDescription}
           </p>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 items-stretch">
             {servicesPage.processSteps.map((step, i) => (
-              <div
-                 key={i}
-  className="
-    bg-stone-100
-    rounded-xl
-    p-6
-    shadow-sm
-    hover:shadow-xl
-    hover:bg-stone-200
-    transition
-    text-center
-  "
-              >
-                <div className="w-12 h-12 bg-fashion-gold rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-white font-bold text-lg">
-                    {i + 1}
-                  </span>
+              <RevealWrapper key={i} index={i}>
+                <div
+                  className="bg-stone-100 rounded-xl p-6 shadow-sm
+                    hover:shadow-xl hover:bg-stone-200 transition text-center h-full"
+                >
+                  <div className="w-12 h-12 bg-fashion-gold rounded-full flex items-center justify-center mx-auto mb-4">
+                    <span className="text-white font-bold text-lg">
+                      {i + 1}
+                    </span>
+                  </div>
+                  <p className="font-semibold text-gray-900 leading-snug">
+                    {step}
+                  </p>
                 </div>
-                <p className="font-semibold text-gray-900 leading-snug">
-                  {step}
-                </p>
-              </div>
+              </RevealWrapper>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ================= CTA (REVAMPED) ================= */}
+      {/* ================= CTA ================= */}
       <section className="pb-32">
         <div className="container-max text-center">
           <p className="text-gray-800 mb-8 text-lg">
@@ -124,18 +120,10 @@ export default function ServicesPage() {
 
           <Link
             href="/contact"
-            className="
-              inline-flex items-center gap-2
-              border-2 border-fashion-gold
-              text-fashion-gold
-              px-10 py-4
-              rounded-full
-              font-semibold
-              transition-all
-              hover:bg-fashion-gold
-              hover:text-white
-              hover:shadow-xl
-            "
+            className="inline-flex items-center gap-2
+              border-2 border-fashion-gold text-fashion-gold
+              px-10 py-4 rounded-full font-semibold
+              transition-all hover:bg-fashion-gold hover:text-white hover:shadow-xl"
           >
             {servicesPage.ctaButton}
             <ArrowRight className="w-4 h-4" />

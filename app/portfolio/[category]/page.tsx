@@ -1,7 +1,7 @@
-// app/portfolio/[category]/page.tsx
 import Link from "next/link"
 import { notFound } from "next/navigation"
 import { portfolioData } from "@/lib/data/portfolio"
+import RevealWrapper from "@/components/RevealWrapper"
 
 /**
  * Portfolio Category Page
@@ -11,9 +11,7 @@ import { portfolioData } from "@/lib/data/portfolio"
  */
 
 export function generateStaticParams() {
-  return Object.keys(portfolioData).map((category) => ({
-    category,
-  }))
+  return Object.keys(portfolioData).map((category) => ({ category }))
 }
 
 export default function CategoryPage({
@@ -44,10 +42,9 @@ export default function CategoryPage({
             {category.title}
           </h1>
 
-          {/* Optional Description (future-ready) */}
+          {/* Optional Description */}
           <p className="max-w-2xl text-gray-600 text-lg leading-relaxed">
-            Selected works and creative projects under the {category.title}{" "}
-            category.
+            Selected works and creative projects under the {category.title} category.
           </p>
         </div>
       </section>
@@ -57,60 +54,61 @@ export default function CategoryPage({
       {/* ============================= */}
       <section className="bg-stone-50 py-20">
         <div className="container-max">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 animate-fadeIn">
-            {Object.entries(category.projects).map(([slug, project]) => (
-              <Link
-                key={slug}
-                href={`/portfolio/${params.category}/${slug}`}
-                className="
-                  group
-                  block
-                  overflow-hidden
-                  rounded-2xl
-                  bg-stone-100
-                  shadow-sm
-                  hover:shadow-xl
-                  transition-all
-                  duration-500
-                "
-              >
-                {/* Project Thumbnail */}
-                <div className="relative h-80 overflow-hidden">
-                  <img
-                    src={project.thumbnail}
-                    alt={project.title}
-                    className="
-                      w-full
-                      h-full
-                      object-cover
-                      transition-transform
-                      duration-700
-                      group-hover:scale-105
-                    "
-                  />
-                </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-stretch">
+            {Object.entries(category.projects).map(([slug, project], i) => (
+              <RevealWrapper key={slug} index={i}>
+                <Link
+                  href={`/portfolio/${params.category}/${slug}`}
+                  className="
+                    group
+                    flex flex-col h-full
+                    overflow-hidden
+                    rounded-2xl
+                    bg-stone-100
+                    shadow-sm
+                    hover:shadow-xl
+                    transition-all
+                    duration-500
+                  "
+                >
+                  {/* Project Thumbnail */}
+                  <div className="relative h-80 overflow-hidden">
+                    <img
+                      src={project.thumbnail}
+                      alt={project.title}
+                      className="
+                        w-full
+                        h-full
+                        object-cover
+                        transition-transform
+                        duration-700
+                        group-hover:scale-105
+                      "
+                    />
+                  </div>
 
-                {/* Project Meta */}
-                <div className="p-8 text-center">
-                  <h2
-                    className="
-                      text-xl
-                      font-semibold
-                      text-fashion-black
-                      tracking-wide
-                      group-hover:text-fashion-gold
-                      transition-colors
-                      duration-300
-                    "
-                  >
-                    {project.title}
-                  </h2>
+                  {/* Project Meta */}
+                  <div className="p-8 text-center flex-grow">
+                    <h2
+                      className="
+                        text-xl
+                        font-semibold
+                        text-fashion-black
+                        tracking-wide
+                        group-hover:text-fashion-gold
+                        transition-colors
+                        duration-300
+                      "
+                    >
+                      {project.title}
+                    </h2>
 
-                  <span className="mt-3 inline-block text-sm text-gray-500 tracking-widest uppercase">
-                    View Project
-                  </span>
-                </div>
-              </Link>
+                    <span className="mt-3 inline-block text-sm text-gray-500 tracking-widest uppercase">
+                      View Project
+                    </span>
+                  </div>
+                </Link>
+              </RevealWrapper>
             ))}
           </div>
         </div>

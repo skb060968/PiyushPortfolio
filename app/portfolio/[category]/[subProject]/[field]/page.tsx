@@ -1,6 +1,6 @@
-// app/portfolio/[category]/[subProject]/[field]/page.tsx
 import Link from "next/link"
 import { portfolioData } from "@/lib/data/portfolio"
+import RevealWrapper from "@/components/RevealWrapper"
 
 export async function generateStaticParams() {
   const params: { category: string; subProject: string; field: string }[] = []
@@ -60,13 +60,13 @@ export default function FieldDetailPage({
       {/* ============================= */}
       <section className="bg-zinc-50 py-24">
         <div className="container-max">
-          <div className="relative overflow-hidden rounded-3xl shadow-xl group animate-fadeInUp">
+          <div className="relative overflow-hidden rounded-3xl shadow-xl group">
             {/* subtle overlay */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-60 z-10" />
 
             <img
-               src={fieldData.hero ?? fieldData.thumbnail}
-               alt={`${fieldData.title} hero`}
+              src={fieldData.hero ?? fieldData.thumbnail}
+              alt={`${fieldData.title} hero`}
               className="
                 w-full
                 max-h-[80vh]
@@ -93,34 +93,34 @@ export default function FieldDetailPage({
           ) : (
             <div className="columns-1 sm:columns-2 lg:columns-3 gap-6">
               {fieldData.images.map((src, i) => (
-                <div
-                  key={i}
-                  className="
-                    mb-6
-                    break-inside-avoid
-                    overflow-hidden
-                    rounded-2xl
-                    bg-white
-                    shadow-md
-                    transition-all
-                    duration-500
-                    hover:shadow-2xl
-                    animate-fadeInUp
-                  "
-                >
-                  <img
-                    src={src}
-                    alt={`${fieldData.title} ${i + 1}`}
+                <RevealWrapper key={i} index={i}>
+                  <div
                     className="
-                      w-full
-                      object-cover
-                      transition-transform
-                      duration-700
-                      ease-out
-                      hover:scale-110
+                      mb-6
+                      break-inside-avoid
+                      overflow-hidden
+                      rounded-2xl
+                      bg-white
+                      shadow-md
+                      transition-all
+                      duration-500
+                      hover:shadow-2xl
                     "
-                  />
-                </div>
+                  >
+                    <img
+                      src={src}
+                      alt={`${fieldData.title} ${i + 1}`}
+                      className="
+                        w-full
+                        object-cover
+                        transition-transform
+                        duration-700
+                        ease-out
+                        hover:scale-110
+                      "
+                    />
+                  </div>
+                </RevealWrapper>
               ))}
             </div>
           )}

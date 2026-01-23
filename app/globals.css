@@ -5,6 +5,9 @@
 /* -----------------------------
    Base
 ----------------------------- */
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   font-family: 'Inter', sans-serif;
@@ -13,6 +16,13 @@ body {
   -webkit-tap-highlight-color: transparent;
 }
 
+ /* -----------------------------
+   Anchor Scroll Offset
+----------------------------- */
+[id] {
+  scroll-margin-top: 8rem; /* adjust to match your nav height */
+}
+ 
 /* -----------------------------
    Disable Context Menu / Selection
 ----------------------------- */
@@ -45,7 +55,6 @@ video {
 /* -----------------------------
    Layout Utilities
 ----------------------------- */
-
 .section-padding {
   @apply py-16 sm:py-20 lg:py-24;
 }
@@ -57,7 +66,6 @@ video {
 /* -----------------------------
    Animations (opt-in only)
 ----------------------------- */
-
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -91,17 +99,14 @@ video {
 /* -----------------------------
    Scroll Reveal – Card Elevation
 ----------------------------- */
-
 @keyframes riseIn {
   from {
     opacity: 0;
     transform: translateY(24px) scale(0.98);
-    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
   }
   to {
     opacity: 1;
     transform: translateY(0) scale(1);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
   }
 }
 
@@ -112,4 +117,6 @@ video {
 
 .reveal-visible {
   animation: riseIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  /* Add a subtle base shadow after reveal */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
 }

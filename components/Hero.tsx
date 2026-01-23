@@ -14,7 +14,13 @@ export default function Hero() {
           muted
           loop
           playsInline
-          className="w-full h-full object-cover scale-150"
+		  preload="auto"
+          className="w-full h-full object-cover"
+		  aria-hidden="true"
+          role="presentation"
+
+
+		  
         > <source src="/videos/hero.mp4" type="video/mp4" />
           <source src="/videos/hero.webm" type="video/webm" />
         </video>

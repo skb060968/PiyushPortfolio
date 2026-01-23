@@ -1,6 +1,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import { content } from "@/lib/data"
+import RevealWrapper from "@/components/RevealWrapper"
 
 export default function AboutSection() {
   const { about } = content
@@ -11,22 +12,24 @@ export default function AboutSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           
           {/* Image */}
-          <div className="relative overflow-hidden rounded-lg shadow-sm">
-            <Image
-              src="/images/about/piyush2.jpg"
-              alt="Piyush Bholla"
-              width={600}
-              height={700}
-              className="w-full h-96 lg:h-[480px] object-cover"
-              priority
-            />
+          <RevealWrapper>
+            <div className="relative overflow-hidden rounded-lg shadow-sm group">
+              <Image
+                src="/images/about/piyush2.jpg"
+                alt="Piyush Bholla"
+                width={600}
+                height={700}
+                className="w-full h-96 lg:h-[480px] object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                priority
+              />
 
-            <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-fashion-gold rounded-full flex items-center justify-center shadow-md">
-              <span className="text-white font-serif text-lg font-bold">
-                PG
-              </span>
+              <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-fashion-gold rounded-full flex items-center justify-center shadow-md">
+                <span className="text-white font-serif text-lg font-bold">
+                  PG
+                </span>
+              </div>
             </div>
-          </div>
+          </RevealWrapper>
 
           {/* Content */}
           <div className="bg-stone-100 rounded-xl p-8 lg:p-10 space-y-6">

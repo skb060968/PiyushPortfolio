@@ -1,30 +1,9 @@
-"use client"
-
-import { useEffect, useRef } from "react"
 import { Mail, Phone, MapPin, Clock } from "lucide-react"
 import { content } from "@/lib/data"
+import RevealWrapper from "@/components/RevealWrapper"
 
 export default function ContactPage() {
   const { contact, faq } = content
-  const faqRefs = useRef<HTMLDivElement[]>([])
-
-  /* ================= FAQ SCROLL ANIMATION ================= */
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("animate-fade-in-up")
-            observer.unobserve(entry.target)
-          }
-        })
-      },
-      { threshold: 0.15 }
-    )
-
-    faqRefs.current.forEach(el => el && observer.observe(el))
-    return () => observer.disconnect()
-  }, [])
 
   return (
     <section className="section-padding bg-stone-50">
@@ -110,26 +89,23 @@ export default function ContactPage() {
             Frequently Asked Questions
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
             {faq.map((item, index) => (
-              <div
-                key={index}
-                ref={el => {
-                  if (el) faqRefs.current[index] = el
-                }}
-                className="bg-stone-100 p-8 rounded-xl space-y-4
-                  opacity-0 translate-y-6
-                  transition-shadow duration-300
-                  hover:shadow-lg
-				  hover:bg-stone-200"
-              >
-                <h3 className="font-semibold text-fashion-black">
-                  {item.question}
-                </h3>
-                <p className="text-gray-800 leading-relaxed">
-                  {item.answer}
-                </p>
-              </div>
+              <RevealWrapper key={index} index={index}>
+                <div
+                  className="flex flex-col h-full min-h-[220px]
+                    bg-stone-100 p-8 rounded-xl space-y-4
+                    transition-all duration-300
+                    hover:shadow-lg hover:bg-stone-200"
+                >
+                  <h3 className="font-semibold text-fashion-black">
+                    {item.question}
+                  </h3>
+                  <p className="text-gray-800 leading-relaxed">
+                    {item.answer}
+                  </p>
+                </div>
+              </RevealWrapper>
             ))}
           </div>
         </div>

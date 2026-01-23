@@ -1,7 +1,7 @@
-// app/portfolio/[category]/[subProject]/page.tsx
 import Link from "next/link"
 import { notFound } from "next/navigation"
 import { portfolioData } from "@/lib/data/portfolio"
+import RevealWrapper from "@/components/RevealWrapper"
 
 /**
  * Portfolio Project Page
@@ -53,17 +53,11 @@ export default function ProjectPage({
           </h1>
 
           {/* Project Description */}
-		  
-		  
           {projectData.description && (
-           <p className="mt-6 max-w-3xl text-lg text-gray-700 leading-relaxed">
-           {projectData.description}
-           </p>
-		   
-           )}
-
-		  
-		  		  
+            <p className="mt-6 max-w-3xl text-lg text-gray-700 leading-relaxed">
+              {projectData.description}
+            </p>
+          )}
         </div>
       </section>
 
@@ -72,61 +66,62 @@ export default function ProjectPage({
       {/* ============================= */}
       <section className="bg-stone-50 py-20">
         <div className="container-max">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 animate-fadeIn">
-            {Object.entries(projectData.fields).map(([fieldKey, field]) => (
-              <Link
-                key={fieldKey}
-                href={`/portfolio/${category}/${subProject}/${fieldKey}`}
-                className="
-                  group
-                  block
-                  overflow-hidden
-                  rounded-2xl
-                  bg-stone-100
-                  shadow-sm
-                  hover:shadow-xl
-                  transition-all
-                  duration-500
-                "
-              >
-                {/* Field Thumbnail */}
-                <div className="relative h-64 overflow-hidden">
-                  <img
-                    src={field.thumbnail}
-                    alt={`${field.title} thumbnail`}
-                    className="
-                      w-full
-                      h-full
-                      object-cover
-                      transition-transform
-                      duration-700
-                      group-hover:scale-105
-                    "
-                  />
-                </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
+            {Object.entries(projectData.fields).map(([fieldKey, field], i) => (
+              <RevealWrapper key={fieldKey} index={i}>
+                <Link
+                  href={`/portfolio/${category}/${subProject}/${fieldKey}`}
+                  className="
+                    group
+                    flex flex-col h-full
+                    overflow-hidden
+                    rounded-2xl
+                    bg-stone-100
+                    shadow-sm
+                    hover:shadow-xl
+                    transition-all
+                    duration-500
+                  "
+                >
+                  {/* Field Thumbnail */}
+                  <div className="relative h-64 overflow-hidden">
+                    <img
+                      src={field.thumbnail}
+                      alt={`${field.title} thumbnail`}
+                      className="
+                        w-full
+                        h-full
+                        object-cover
+                        transition-transform
+                        duration-700
+                        group-hover:scale-105
+                      "
+                    />
+                  </div>
 
-                {/* Field Meta */}
-                <div className="p-6 text-center">
-                  <h3
-                    className="
-                      font-serif
-                      text-xl
-                      font-semibold
-                      text-fashion-black
-                      tracking-wide
-                      group-hover:text-fashion-gold
-                      transition-colors
-                      duration-300
-                    "
-                  >
-                    {field.title}
-                  </h3>
+                  {/* Field Meta */}
+                  <div className="p-6 text-center flex-grow">
+                    <h3
+                      className="
+                        font-serif
+                        text-xl
+                        font-semibold
+                        text-fashion-black
+                        tracking-wide
+                        group-hover:text-fashion-gold
+                        transition-colors
+                        duration-300
+                      "
+                    >
+                      {field.title}
+                    </h3>
 
-                  <p className="mt-3 text-sm text-gray-600 line-clamp-2">
-                    {field.description}
-                  </p>
-                </div>
-              </Link>
+                    <p className="mt-3 text-sm text-gray-600 line-clamp-2">
+                      {field.description}
+                    </p>
+                  </div>
+                </Link>
+              </RevealWrapper>
             ))}
           </div>
         </div>
