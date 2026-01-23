@@ -9,34 +9,37 @@ export default function PortfolioPage() {
       {/* ============================= */}
       {/* PORTFOLIO HERO / INTRO */}
       {/* ============================= */}
-      <section className="bg-stone-50 pt-28 pb-16">
+      <section className="bg-stone-50 pt-24 pb-12">
         <div className="container-max">
           {/* Back Navigation */}
           <Link
             href="/"
-            className="inline-block mb-6 text-sm text-gray-500 hover:text-fashion-black transition-colors"
+            className="inline-block mb-6 text-sm text-gray-600 hover:text-fashion-gold transition-colors duration-300"
           >
             ← BACK TO HOME
           </Link>
 
           {/* Page Title */}
-          <h1 className="font-serif text-5xl font-bold text-fashion-black mb-4">
+          <h1 className="font-serif text-4xl sm:text-5xl font-bold text-fashion-black mb-4">
             Portfolio
           </h1>
 
           {/* Intro Description */}
-          <p className="max-w-2xl text-gray-600 text-lg leading-relaxed">
+          <p className="max-w-2xl text-gray-600 text-base sm:text-lg leading-relaxed mb-6">
             A curated selection of fashion styling, creative direction, and
             visual storytelling across editorials, campaigns, and traditional
             wear.
           </p>
+
+          {/* Divider Bar */}
+          <div className="w-16 h-1 bg-fashion-gold mb-4"></div>
         </div>
       </section>
 
       {/* ============================= */}
       {/* PORTFOLIO CATEGORY GRID */}
       {/* ============================= */}
-      <section className="bg-stone-50 py-20">
+      <section className="bg-stone-50 py-12">
         <div className="container-max">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
             {Object.entries(portfolioData).map(([categoryKey, category], i) => (
@@ -71,8 +74,8 @@ export default function PortfolioPage() {
                   </div>
 
                   {/* Category Meta */}
-                  <div className="p-6 text-center flex-grow">
-                    <h3 className="font-serif text-2xl font-semibold text-fashion-black tracking-wide">
+                  <div className="p-6 text-left flex-grow">
+                    <h3 className="font-serif text-xl sm:text-2xl font-semibold text-fashion-black tracking-wide">
                       {category.title}
                     </h3>
 

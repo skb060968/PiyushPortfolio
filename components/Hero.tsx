@@ -28,37 +28,37 @@ export default function Hero() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 text-center text-white px-4 animate-fadeIn">
-        <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
-          {hero.title}
-        </h1>
+<div className="relative z-10 text-center text-white px-4 animate-fadeIn">
+  <h1 className="font-serif text-3xl sm:text-4xl lg:text-6xl font-bold mb-6 opacity-90 drop-shadow-lg">
+    {hero.title}
+  </h1>
 
-        <p className="text-lg sm:text-xl mb-4 font-light tracking-wide">
-          {hero.subtitle}
-        </p>
+  <p className="text-base sm:text-lg lg:text-xl mb-4 font-light tracking-wide opacity-85 drop-shadow">
+    {hero.subtitle}
+  </p>
 
-        <p className="text-base sm:text-lg mb-8 max-w-2xl mx-auto opacity-90">
-          {hero.description}
-        </p>
+  <p className="text-sm sm:text-base lg:text-lg mb-8 max-w-2xl mx-auto opacity-80 leading-relaxed drop-shadow">
+    {hero.description}
+  </p>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Link
-            href="/portfolio"
-            className="px-6 py-3 rounded-lg font-semibold border border-white
-              hover:bg-fashion-gold hover:border-fashion-gold hover:text-black transition"
-          >
-            {hero.primaryButtonText}
-          </Link>
+  <div className="flex flex-col sm:flex-row gap-4 justify-center">
+    <Link
+      href="/portfolio"
+      className="px-6 py-3 rounded-lg font-semibold border border-white
+        hover:bg-fashion-gold hover:border-fashion-gold hover:text-black transition"
+    >
+      {hero.primaryButtonText}
+    </Link>
 
-          <Link
-            href="/contact"
-            className="px-6 py-3 rounded-lg font-semibold border border-white
-              hover:bg-fashion-gold hover:border-fashion-gold hover:text-black transition"
-          >
-            {hero.secondaryButtonText}
-          </Link>
-        </div>
-      </div>
+    <Link
+      href="/contact"
+      className="px-6 py-3 rounded-lg font-semibold border border-white
+        hover:bg-fashion-gold hover:border-fashion-gold hover:text-black transition"
+    >
+      {hero.secondaryButtonText}
+    </Link>
+  </div>
+</div>
 
       {/* Scroll Indicator */}
       <div

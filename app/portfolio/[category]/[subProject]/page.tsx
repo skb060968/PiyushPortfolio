@@ -38,35 +38,38 @@ export default function ProjectPage({
       {/* ============================= */}
       {/* PROJECT NAVIGATION */}
       {/* ============================= */}
-      <section className="bg-stone-50 pt-24 pb-10">
+      <section className="bg-stone-50 pt-20 pb-10">
         <div className="container-max">
           <Link
             href={`/portfolio/${category}`}
-            className="inline-block mb-6 text-sm text-gray-500 hover:text-fashion-black transition-colors"
+            className="inline-block mb-6 text-sm text-gray-600 hover:text-fashion-gold transition-colors duration-300"
           >
             ← BACK TO {portfolioData[category].title}
           </Link>
 
           {/* Project Title */}
-          <h1 className="font-serif text-5xl font-bold text-fashion-black">
+          <h1 className="font-serif text-4xl sm:text-5xl font-bold text-fashion-black mb-4">
             {projectData.title}
           </h1>
 
           {/* Project Description */}
           {projectData.description && (
-            <p className="mt-6 max-w-3xl text-lg text-gray-700 leading-relaxed">
+            <p className="max-w-2xl text-gray-700 text-base sm:text-lg leading-relaxed mb-6">
               {projectData.description}
             </p>
           )}
+
+          {/* Divider Bar */}
+          <div className="w-16 h-1 bg-fashion-gold"></div>
         </div>
       </section>
 
       {/* ============================= */}
       {/* PROJECT FIELDS GRID */}
       {/* ============================= */}
-      <section className="bg-stone-50 py-20">
+      <section className="bg-stone-50 py-12">
         <div className="container-max">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 items-stretch">
             {Object.entries(projectData.fields).map(([fieldKey, field], i) => (
               <RevealWrapper key={fieldKey} index={i}>
                 <Link
@@ -100,11 +103,11 @@ export default function ProjectPage({
                   </div>
 
                   {/* Field Meta */}
-                  <div className="p-6 text-center flex-grow">
+                  <div className="p-6 text-left flex-grow">
                     <h3
                       className="
                         font-serif
-                        text-xl
+                        text-lg sm:text-xl
                         font-semibold
                         text-fashion-black
                         tracking-wide
@@ -116,7 +119,7 @@ export default function ProjectPage({
                       {field.title}
                     </h3>
 
-                    <p className="mt-3 text-sm text-gray-600 line-clamp-2">
+                    <p className="mt-3 text-sm text-gray-600 leading-relaxed line-clamp-3">
                       {field.description}
                     </p>
                   </div>

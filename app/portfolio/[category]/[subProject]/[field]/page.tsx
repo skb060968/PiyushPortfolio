@@ -36,40 +36,44 @@ export default function FieldDetailPage({
       {/* ============================= */}
       {/* HEADER / NAV */}
       {/* ============================= */}
-      <section className="bg-zinc-50 pt-24 pb-14">
+      <section className="bg-zinc-50 pt-20 pb-10">
         <div className="container-max">
           <Link
             href={`/portfolio/${category}/${subProject}`}
-            className="inline-block mb-6 text-sm text-gray-600 hover:text-fashion-black transition-colors"
+            className="inline-block mb-6 text-sm text-gray-600 hover:text-fashion-gold transition-colors duration-300"
           >
-            ← BACK TO {subProject}
+            ← BACK TO {portfolioData[category].projects[subProject].title}
+
           </Link>
 
-          <h1 className="font-serif text-5xl font-bold text-fashion-black mb-6">
+          <h1 className="font-serif text-4xl sm:text-5xl font-bold text-fashion-black mb-4">
             {fieldData.title}
           </h1>
 
-          <p className="max-w-3xl text-lg text-gray-700 leading-relaxed">
+          <p className="max-w-2xl text-gray-700 text-base sm:text-lg leading-relaxed mb-6">
             {fieldData.description}
           </p>
+
+          {/* Divider Bar */}
+          <div className="w-16 h-1 bg-fashion-gold"></div>
         </div>
       </section>
 
       {/* ============================= */}
       {/* FEATURED / HERO IMAGE */}
       {/* ============================= */}
-      <section className="bg-zinc-50 py-24">
+      <section className="bg-zinc-50 py-16">
         <div className="container-max">
-          <div className="relative overflow-hidden rounded-3xl shadow-xl group">
+          <div className="relative overflow-hidden rounded-3xl shadow-lg group">
             {/* subtle overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-60 z-10" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-50 z-10" />
 
             <img
               src={fieldData.hero ?? fieldData.thumbnail}
               alt={`${fieldData.title} hero`}
               className="
                 w-full
-                max-h-[80vh]
+                max-h-[70vh]
                 object-cover
                 transition-transform
                 duration-1000
@@ -84,27 +88,25 @@ export default function FieldDetailPage({
       {/* ============================= */}
       {/* IMAGE GALLERY */}
       {/* ============================= */}
-      <section className="bg-zinc-50 py-28">
+      <section className="bg-zinc-50 py-20">
         <div className="container-max">
           {fieldData.images.length === 0 ? (
             <p className="text-center text-gray-500">
               No additional images added yet.
             </p>
           ) : (
-            <div className="columns-1 sm:columns-2 lg:columns-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {fieldData.images.map((src, i) => (
                 <RevealWrapper key={i} index={i}>
                   <div
                     className="
-                      mb-6
-                      break-inside-avoid
                       overflow-hidden
                       rounded-2xl
                       bg-white
                       shadow-md
                       transition-all
                       duration-500
-                      hover:shadow-2xl
+                      hover:shadow-xl
                     "
                   >
                     <img
@@ -112,11 +114,12 @@ export default function FieldDetailPage({
                       alt={`${fieldData.title} ${i + 1}`}
                       className="
                         w-full
+                        h-full
                         object-cover
                         transition-transform
                         duration-700
                         ease-out
-                        hover:scale-110
+                        hover:scale-105
                       "
                     />
                   </div>
