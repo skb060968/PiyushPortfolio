@@ -85,7 +85,7 @@ export default function AboutPage() {
 	  
        <div className="relative pl-12 min-h-[180px] bg-stone-100 p-6 rounded-xl shadow-sm">
   {/* Golden dot marker aligned with year text */}
-  <span className="absolute left-[1.25rem] top-[1.85rem] w-4 h-4 bg-fashion-gold rounded-full"></span>
+  <span className="absolute left-[1.25rem] top-[1.78rem] w-4 h-4 bg-fashion-gold rounded-full"></span>
 
   <div>
     <span className="text-fashion-gold font-semibold text-base sm:text-lg">

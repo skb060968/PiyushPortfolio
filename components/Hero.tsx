@@ -18,8 +18,7 @@ export default function Hero() {
           className="w-full h-full object-cover"
 		  aria-hidden="true"
           role="presentation"
-
-
+          poster="/images/hero/poster.jpg"  // <-- Poster image here
 		  
         > <source src="/videos/hero.mp4" type="video/mp4" />
           <source src="/videos/hero.webm" type="video/webm" />
